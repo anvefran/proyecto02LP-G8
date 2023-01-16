@@ -1,18 +1,18 @@
 <?php
 class Producto {
     // Properties
-  public $id;
+    public $id;
     public $nombre;
     public $precio;
     public $descripcion;
-    public $vendedor;
+    public $id_vendedor;
     public $categoria;
   
-    public function __construct($id,$nombre,$precio,$descripcion,$vendedor, $categoria){
+    public function __construct($id,$nombre,$precio,$descripcion,$id_vendedor, $categoria){
         $this->nombre = $nombre;
         $this->precio = $precio;
         $this->descripcion = $descripcion;
-        $this->vendedor = $vendedor;
+        $this->id_vendedor = $id_vendedor;
         $this->categoria = $categoria;
         $this->id = $id;
     }
@@ -41,12 +41,13 @@ class Producto {
     function get_descripcion() {
       return $this->descripcion;
     }
-    function set_vendedor($vendedor) {
-        $this->vendedor =$vendedor;
+    function set_id_vendedor($id_vendedor) {
+        $this->id_vendedor =$id_vendedor;
     }
-    function get_vendedor() {
-        return $this->vendedor;
+    function get_id_vendedor() {
+        return $this->id_vendedor;
     }
+
     //CREATE
     public function postProduct(){ //crea un producto
     $jsonContent = file_get_contents('../data/productos.json');
@@ -57,7 +58,7 @@ class Producto {
       "precio"=> $this->precio,
       "categoria" => $this->categoria,
       "descripcion"=>$this->descripcion,
-      "vendedor"=> $this->vendedor
+      "id_vendedor"=> $this->id_vendedor
     );
     $archivo = fopen("../data/productos.json", "w");
     fwrite($archivo, json_encode($productos));
@@ -76,39 +77,128 @@ class Producto {
     public static function getProducto($id){
       $fileContent = file_get_contents("../data/productos.json");
       $productos = json_decode($fileContent,true);
-      echo json_encode($productos[$id],true);
+      
+      for ($idx = 0; $idx < count($productos); $idx++){
+        $id_tmp_prod = $productos[$idx]["id"];
+        if($id_tmp_prod == $id){
+          echo json_encode($productos[$idx],true);
+          return 0;
+        }
+
+      }
+      echo "element not found";
+      return -1;
+      
     }
 
     //UPDATE ONE PRODUCT
     public function updateProduct($id){
       $fileContent = file_get_contents("../data/productos.json");
       $productos = json_decode($fileContent,true);
-      $product = array(
-        "id"=> $this->id,
-        "nombre"=> $this->nombre,
-        "precio"=> $this->precio,
-        "categoria" => $this->categoria,
-        "descripcion"=>$this->descripcion,
-        "vendedor"=> $this->vendedor
-      );
-      $productos[$id] = $product;
-      $file = fopen("../data/productos.json", 'w');
-      fwrite($file,json_encode($productos));
-      fclose($file);
-      $fileContent = file_get_contents("../data/productos.json");
-      echo $fileContent;
+
+      for ($idx = 0; $idx < count($productos); $idx++){
+
+        $id_producto_anterior = $productos[$idx]["id"];
+        
+        //en el caso de que se encuentre el producto a actualizar
+        if($id_producto_anterior == $id){
+
+          //producto que se va a actualizar
+          $new_product = array(
+          "id"=> $this->id,
+          "nombre"=> $this->nombre,
+          "precio"=> $this->precio,
+          "categoria" => $this->categoria,
+          "descripcion"=>$this->descripcion,
+          "id_vendedor"=> $this->id_vendedor
+          );
+
+          $productos[$idx] = $new_product;
+          
+          $file = fopen("../data/productos.json", 'w');
+          fwrite($file,json_encode($productos));
+          fclose($file);
+          $fileContent = file_get_contents("../data/productos.json");
+          echo $fileContent;
+
+          return 0; //success
+
+        } 
+      }
+
+      echo "element not found";
+      return -1; //error
+      
+      
     }
 
     //DELETE ONE PRODUCT
     public static function deleteProduct($id){
       $fileContent = file_get_contents("../data/productos.json");
       $productos = json_decode($fileContent,true);
-      array_splice($productos,$id,1);
-      $file = fopen("../data/productos.json", 'w');
-      fwrite($file,json_encode($productos));
-      fclose($file);
-      $fileContent = file_get_contents("../data/productos.json");
-      echo $fileContent;
+      
+      for( $idx = 0; $idx < count($productos) ; $idx++){
+        $producto_id = $productos[$idx]["id"];
+        if($producto_id == $id){ //coincidencia de id's
+          array_splice($productos, $idx, 1); //se elimina en el índice encontrado dentro del arreglo
+
+          //se actualiza el archivo
+          $file = fopen("../data/productos.json", 'w');
+          fwrite($file,json_encode($productos));
+          fclose($file);
+          $fileContent = file_get_contents("../data/productos.json");
+          echo $fileContent;
+          
+          return 0 ; //success
+        }
+
+      }
+      echo "element not found";
+      return -1; //error
     }
+
+    //mostrar productos según su categoría
+    public static function showByCategories($category){
+      $fileContent = file_get_contents("../data/productos.json");
+      $productos = json_decode($fileContent,true);
+      $arr_filtrado = array();
+
+      foreach( $productos as $producto){
+       if ($producto["categoria"] == $category){
+         $arr_filtrado[] = $producto;
+       }
+      }
+      
+      echo json_encode($arr_filtrado);
+    }
+
+    public static function showProductsGreaterThan($price){
+      $fileContent = file_get_contents("../data/productos.json");
+      $productos = json_decode($fileContent,true);
+      $arr_filtrado = array();
+
+      foreach( $productos as $producto){
+       if (floatval($producto["precio"]) > floatval($price)){
+         $arr_filtrado[] = $producto;
+       }
+      }
+      
+      echo json_encode($arr_filtrado);
+    }
+
+    public static function showProductsLessThan($price){
+      $fileContent = file_get_contents("../data/productos.json");
+      $productos = json_decode($fileContent,true);
+      $arr_filtrado = array();
+
+      foreach( $productos as $producto){
+       if (floatval($producto["precio"]) < floatval($price)){
+         $arr_filtrado[] = $producto;
+       }
+      }
+      
+      echo json_encode($arr_filtrado);
+    }
+
   }
 ?>
