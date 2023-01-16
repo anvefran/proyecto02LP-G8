@@ -7,28 +7,55 @@ header('Content-Type: application/json; charset=utf-8'); //indico que le estoy m
 include_once("../clases/producto.php");
 
 switch($_SERVER['REQUEST_METHOD']){
+    //agregar productos
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input'),true); //obtiene en json format
-        $producto = new Producto($_POST['id'],$_POST['nombre'],$_POST['precio'],$_POST['descripcion'], $_POST['vendedor'],$_POST['categoria']);
+
+        $id_prod = $_POST['id'];
+        $nombre_prod = $_POST['nombre'];
+        $precio_prod = $_POST['precio'];
+        $decr_prod = $_POST['descripcion'];
+        $id_vendedor = $_POST['id_vendedor'];
+        $categoria = $_POST['categoria'];
+
+        $producto = new Producto($id_prod,   $nombre_prod, $precio_prod, $decr_prod,  $id_vendedor,  $categoria);
         $producto->postProduct();
-        //$result['mensaje'] = 'Producto a guardar: ' . json_encode($_POST); //nombre del producto
-        //tambien se puede imprimir un solo dato con $_POST['id'] y le muestro como json
-        //echo json_encode($result);
+
         break;
+
+    //obtener productos
     case 'GET':
         if (isset($_GET['id'])){
+            //mostrar productos por id
             Producto::getProducto($_GET['id']);
+
+        }else if (isset($_GET['categoria'])){
+
+            //mostrar productos por categoría
+             Producto::showByCategories($_GET['categoria']);
+        }else if (isset($_GET['greater'])){
+            //muestra los productos que tengan un precio mayor a un precio
+            Producto::showProductsGreaterThan($_GET['greater']);
+        }else if  (isset($_GET['less'])){
+
+            //muestra los productos que tengan un precio menor a un precio
+            Producto::showProductsLessThan($_GET['less']);
         }else{
             Producto::getProductos();
         }
+
         break;
+    
+    //actualizar productos
     case 'PUT':
         if (isset($_GET['id'])) {
             $_PUT = json_decode(file_get_contents('php://input'),true);
-            $producto = new Producto($_PUT['id'],$_PUT['nombre'],$_PUT['precio'],$_PUT['descripcion'], $_PUT['vendedor'],$_PUT['categoria']);
+            $producto = new Producto($_PUT['id'],$_PUT['nombre'],$_PUT['precio'],$_PUT['descripcion'], $_PUT['id_vendedor'],$_PUT['categoria']);
             $producto->updateProduct($_GET['id']);
         }
         break;
+
+    //eliminar productos
     case 'DELETE':
         if(isset($_GET['id'])){
             Producto::deleteProduct($_GET['id']);
