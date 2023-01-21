@@ -1,0 +1,41 @@
+<mat-drawer-container class="example-container" autosize>
+
+  <mat-drawer #enlaces class="example-sidenav" mode="over">
+    <div class="position-sticky text-center">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a routerLink="/allProducts" class="list-group-item list-group-item-action py-2 ripple">
+          <mat-icon>dashboard</mat-icon>
+          <span>All Products</span>
+        </a>
+        <a routerLink="/random" class="list-group-item list-group-item-action py-2 ripple">
+          <mat-icon>help_outline</mat-icon>
+          <span>XXXXX</span>
+        </a>
+        <a routerLink="/types/all" class="list-group-item list-group-item-action py-2 ripple">
+          <mat-icon>filter_list</mat-icon>
+          <span>XXXX</span>
+        </a>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button color="accent" aria-label="menu" (click)="menu(enlaces)">  
+      <mat-icon>menu</mat-icon>  
+   </button> 
+   <a class="navbar-brand" routerLink="/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png" height="25" alt="" loading="lazy" />
+    </a>
+  <span>PoliMarket</span>
+  
+  <ul class="navbar-nav ms-auto d-flex flex-row">
+    <li class="nav-item me-3 me-lg-0">
+      <a class="nav-link" href="https://github.com/anvefran/proyecto02LP-G8">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  </ul>
+  </mat-toolbar> 
+  
+  <router-outlet></router-outlet> 
+</mat-drawer-container>
