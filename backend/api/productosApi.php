@@ -12,13 +12,15 @@ switch($_SERVER['REQUEST_METHOD']){
         $_POST = json_decode(file_get_contents('php://input'),true); //obtiene en json format
 
         $id_prod = $_POST['id'];
+        $startUp = $_POST['startUp'];
         $nombre_prod = $_POST['nombre'];
         $precio_prod = $_POST['precio'];
-        $decr_prod = $_POST['descripcion'];
-        $id_vendedor = $_POST['id_vendedor'];
+        $stock = $_POST['stock'];
+        $imageURL = $_POST['imageURL'];
+        $descr_prod = $_POST['descripcion'];
         $categoria = $_POST['categoria'];
 
-        $producto = new Producto($id_prod,   $nombre_prod, $precio_prod, $decr_prod,  $id_vendedor,  $categoria);
+        $producto = new Producto($id_prod,   $startUp, $nombre_prod, $precio_prod, $stock, $imageURL,  $descr_prod,  $categoria);
         $producto->postProduct();
 
         break;
@@ -41,6 +43,7 @@ switch($_SERVER['REQUEST_METHOD']){
             //muestra los productos que tengan un precio menor a un precio
             Producto::showProductsLessThan($_GET['less']);
         }else{
+            //obtener todos los productos
             Producto::getProductos();
         }
 
@@ -50,7 +53,7 @@ switch($_SERVER['REQUEST_METHOD']){
     case 'PUT':
         if (isset($_GET['id'])) {
             $_PUT = json_decode(file_get_contents('php://input'),true);
-            $producto = new Producto($_PUT['id'],$_PUT['nombre'],$_PUT['precio'],$_PUT['descripcion'], $_PUT['id_vendedor'],$_PUT['categoria']);
+            $producto = new Producto($_PUT['id'], $_PUT['startUp'],$_PUT['nombre'],$_PUT['precio'],$_PUT['stock'],$_PUT['imageURL'],$_PUT['descripcion'],$_PUT['categoria']);
             $producto->updateProduct($_GET['id']);
         }
         break;

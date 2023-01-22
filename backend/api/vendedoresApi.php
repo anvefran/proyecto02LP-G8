@@ -7,11 +7,15 @@ header('Content-Type: application/json; charset=utf-8'); //indico que le estoy m
 include_once("../clases/vendedor.php");
 
 switch($_SERVER['REQUEST_METHOD']){
+
+    //crear vendedor
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input'),true); //obtiene en json format
         $vendedor = new Vendedor($_POST['id'],$_POST['nombre'],$_POST['email'],$_POST['facultad']);
         $vendedor->postVendedor();
         break;
+
+    //obtener vendedores
     case 'GET':
         if (isset($_GET['id'])){
             Vendedor::getVendedor($_GET['id']);
@@ -23,6 +27,8 @@ switch($_SERVER['REQUEST_METHOD']){
             Vendedor::getVendedores();
         }
         break;
+
+    //actualizar vendedor
     case 'PUT':
         if (isset($_GET['id'])) {
             $_PUT = json_decode(file_get_contents('php://input'),true);
@@ -30,6 +36,8 @@ switch($_SERVER['REQUEST_METHOD']){
             $vendedor->updateVendedor($_GET['id']);
         }
         break;
+
+    //eliminar vendedor
     case 'DELETE':
         if(isset($_GET['id'])){
             Vendedor::deleteVendedor($_GET['id']);
