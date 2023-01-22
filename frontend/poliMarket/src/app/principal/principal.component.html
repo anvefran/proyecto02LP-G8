@@ -1,0 +1,76 @@
+<div
+  class="background d-flex flex-row align-items-center justify-content-center"
+>
+  <mat-card class="m-2 card-profile">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-pic"></div>
+      <mat-card-title style="font-weight: bold;">Hola, Bienvenido Eduardo!</mat-card-title>
+      <mat-card-subtitle>Tu perfil</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="container ">
+      <div class="row align-items-center justify-content-center">
+   
+              <button mat-button class="col-6 index-usr-option align-self-center d-flex flex-column justify-content-around">
+                  <span>Mi carrito</span> 
+                <mat-icon  class="icon-display" matBadgeColor="accent" fontIcon="shopping_cart"></mat-icon>
+              </button>
+     
+          <button mat-button class="col-6 index-usr-option align-self-center d-flex flex-column justify-content-around">
+            <span>Wishlist</span>
+            <mat-icon  class="icon-display" matBadgeColor="accent" fontIcon="auto_awesome"></mat-icon>
+          </button>
+
+      </div>
+      <div class="row align-items-center justify-content-center">
+          <button mat-button class="col-6 index-usr-option align-self-center d-flex flex-column justify-content-around">
+            <span>Configuración</span>
+            <mat-icon  class="icon-display" matBadgeColor="accent" fontIcon="settings"></mat-icon>
+          </button>
+
+          <button mat-button class="col-6 index-usr-option align-self-center d-flex flex-column justify-content-around">
+            <span>Cerrar Sesion</span>
+            <mat-icon  class="icon-display" matBadgeColor="accent" fontIcon="logout"></mat-icon>
+          </button>
+      </div>
+    </mat-card-content>
+    <mat-card-actions> </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="m-2 card-destacados">
+    <mat-card-header>
+    <mat-card-title style="font-weight: bold;">Mira los destacados de hoy</mat-card-title>
+      <mat-card-subtitle>nuevos productos</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="container d-flex flex-row flex-wrap align-items-center justify-content-center " >
+        <div *ngFor="let producto of products">
+            <div class= "view overlay zoom ">
+                <img mat-card-image class=" img-fluid m-1 "  src="http://localhost/vscodephp/LP/proyecto02LP-G8/backend/{{producto.imageURL}}" alt="{{producto.nombre}}"height= "100px" width="120px">
+            </div>
+            
+        </div>
+        
+
+    </mat-card-content>
+   
+  </mat-card>
+
+  <mat-card class="m-2 card-crear-publicacion">
+    <mat-card-header>
+      <mat-card-title style="font-weight: bold;">Crea una publicación</mat-card-title>
+      <mat-card-subtitle>hazte conocido!</mat-card-subtitle>
+    </mat-card-header>
+    <br>
+    <mat-card-content class="container ">
+        
+        <p>Conviértete en un emprendedor y encuentra un comprador para tus productos</p>
+        <img mat-card-image src="/assets/img/compra_venta.jpeg" height= "190" width="190">
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-stroked-button style="color: rgb(18, 18, 213);">Vender algo</button>
+      
+    </mat-card-actions>
+  </mat-card>
+  <div></div>
+</div>

@@ -16,12 +16,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VendorsComponent } from './vendors/vendors.component';
+import { PrincipalComponent } from './principal/principal.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    VendorsComponent
+    VendorsComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
