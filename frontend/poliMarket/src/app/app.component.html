@@ -39,6 +39,35 @@
       </a>
     </li>
   </ul>
+  
+  <button mat-button [matMenuTriggerFor]="profile">
+    <span>Hola Eduardo!</span>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+  </button>
+
+  <mat-menu #profile="matMenu">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="profile-pic"></div>
+        <mat-card-title>Eduardo Salavarria</mat-card-title>
+        <mat-card-subtitle>Tu perfil</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="d-flex flex-column align-content-start">
+        <button mat-flat-button>Cuenta</button>
+        <button mat-flat-button>Pedidos</button>
+        <button mat-flat-button>Recomendaciones</button>
+        <button mat-flat-button>Historial de búsquedas</button>
+        <button mat-flat-button color="warn">Cerrar sesión</button>
+      </mat-card-content>
+    </mat-card>
+  </mat-menu>
+  
+
+  <button mat-raised-button  matBadge="5">
+    <span>Carrito</span>
+    <mat-icon  matBadgeColor="accent" fontIcon="shopping_cart"></mat-icon>
+  </button>
+
   </mat-toolbar> 
   
   <router-outlet></router-outlet> 

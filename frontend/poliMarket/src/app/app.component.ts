@@ -10,4 +10,9 @@ export class AppComponent {
   menu(enlaces: any) {
     enlaces.toggle()
   }
+  hidden = false;
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
 }

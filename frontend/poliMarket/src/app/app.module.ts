@@ -7,7 +7,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule} from '@angular/material/list';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +34,11 @@ import { VendorsComponent } from './vendors/vendors.component';
     MatCardModule,
     MatSidenavModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatBadgeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
