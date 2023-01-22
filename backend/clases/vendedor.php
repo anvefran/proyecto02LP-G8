@@ -5,13 +5,17 @@ class Vendedor {
     public $nombre;
     public $email;
     public $facultad;
+    public $image;
+    public $startup;
     
   
-    public function __construct($id,$nombre,$email,$facultad){
+    public function __construct($id,$nombre,$email,$facultad,$image,$startup){
         $this->nombre = $nombre;
         $this->email = $email;
         $this->facultad = $facultad;
         $this->id = $id;
+        $this->image = $image;
+        $this->startup = $startup;
     }
     // Methods
     function set_name($nombre) {
@@ -40,7 +44,9 @@ class Vendedor {
       "id"=> $this->id,
       "nombre"=> $this->nombre,
       "email" => $this->email,
-      "facultad"=>$this->facultad
+      "facultad"=>$this->facultad,
+      "image"=>$this->image,
+      "startup"=>$this->startup
     );
     $archivo = fopen("../data/vendedores.json", "w");
     fwrite($archivo, json_encode($vendedores));
@@ -85,7 +91,9 @@ class Vendedor {
         "id"=> $this->id,
         "nombre"=> $this->nombre,
         "email" => $this->email,
-        "facultad"=>$this->facultad
+        "facultad"=>$this->facultad,
+        "image"=>$this->image,
+        "startup"=>$this->startup
       );
       $indice =  Vendedor::encontrarArrID($vendedores,$id);
       $vendedores[$indice] = $vendedor;

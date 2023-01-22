@@ -24,7 +24,7 @@ switch($_SERVER['REQUEST_METHOD']){
     //crear vendedor
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input'),true); //obtiene en json format
-        $vendedor = new Vendedor($_POST['id'],$_POST['nombre'],$_POST['email'],$_POST['facultad']);
+        $vendedor = new Vendedor($_POST['id'],$_POST['nombre'],$_POST['email'],$_POST['facultad'],$_POST['image'],$_POST['startup']);
         $vendedor->postVendedor();
         break;
 
@@ -45,7 +45,7 @@ switch($_SERVER['REQUEST_METHOD']){
     case 'PUT':
         if (isset($_GET['id'])) {
             $_PUT = json_decode(file_get_contents('php://input'),true);
-            $vendedor = new Vendedor($_PUT['id'],$_PUT['nombre'],$_PUT['email'],$_PUT['facultad']);
+            $vendedor = new Vendedor($_PUT['id'],$_PUT['nombre'],$_PUT['email'],$_PUT['facultad'],$_PUT['image'],$_PUT['startup']);
             $vendedor->updateVendedor($_GET['id']);
         }
         break;
