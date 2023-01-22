@@ -2,19 +2,24 @@
 class Producto {
     // Properties
     public $id;
+    public $startUp;
     public $nombre;
     public $precio;
+    public $stock;
+    public $imageURL;
     public $descripcion;
-    public $id_vendedor;
     public $categoria;
+    
   
-    public function __construct($id,$nombre,$precio,$descripcion,$id_vendedor, $categoria){
+    public function __construct($id,$startUp,$nombre, $precio,$stock,$imageURL,$descripcion, $categoria){
+        $this->id = $id;
+        $this->startUp = $startUp;
         $this->nombre = $nombre;
         $this->precio = $precio;
+        $this->stock = $stock;
+        $this->imageURL = $imageURL;
         $this->descripcion = $descripcion;
-        $this->id_vendedor = $id_vendedor;
         $this->categoria = $categoria;
-        $this->id = $id;
     }
     // Methods
     function set_name($nombre) {
@@ -54,11 +59,13 @@ class Producto {
     $productos = json_decode($jsonContent,true);
     $productos[] = array(
       "id"=> $this->id,
+      "startUp"=> $this->startUp,
       "nombre"=> $this->nombre,
       "precio"=> $this->precio,
+      "stock"=> $this->stock,
+      "imageURL"=> $this->imageURL,
       "categoria" => $this->categoria,
-      "descripcion"=>$this->descripcion,
-      "id_vendedor"=> $this->id_vendedor
+      "descripcion"=>$this->descripcion
     );
     $archivo = fopen("../data/productos.json", "w");
     fwrite($archivo, json_encode($productos));
@@ -105,12 +112,14 @@ class Producto {
 
           //producto que se va a actualizar
           $new_product = array(
-          "id"=> $this->id,
-          "nombre"=> $this->nombre,
-          "precio"=> $this->precio,
-          "categoria" => $this->categoria,
-          "descripcion"=>$this->descripcion,
-          "id_vendedor"=> $this->id_vendedor
+            "id"=> $this->id,
+            "startUp"=> $this->startUp,
+            "nombre"=> $this->nombre,
+            "precio"=> $this->precio,
+            "stock"=> $this->stock,
+            "imageURL"=> $this->imageURL,
+            "categoria" => $this->categoria,
+            "descripcion"=>$this->descripcion
           );
 
           $productos[$idx] = $new_product;
