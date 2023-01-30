@@ -18,4 +18,11 @@ export class ProductsComponent {
        console.log(this.products)
      })
    }
+
+   onClick(product: Producto){
+      //console.log(JSON.parse(JSON.stringify(product)))
+      this.productsService.addProductoToCart(product).subscribe(respuesta => {
+        console.log("finalización")
+      })
+   }
 }
