@@ -17,6 +17,8 @@ import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VendorsComponent } from './vendors/vendors.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { PrincipalComponent } from './principal/principal.component';
     AppComponent,
     ProductsComponent,
     VendorsComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { PrincipalComponent } from './principal/principal.component';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTableModule
     
   ],
   providers: [],

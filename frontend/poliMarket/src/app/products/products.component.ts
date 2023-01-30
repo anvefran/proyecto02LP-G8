@@ -13,14 +13,13 @@ export class ProductsComponent {
 
   ngOnInit(){
     this.productsService.getAllProducts().subscribe(respuesta => {
-       //let response = respuesta as AllPokes;
        this.products = respuesta as Array<Producto>;
        console.log(this.products)
      })
    }
 
    onClick(product: Producto){
-      //console.log(JSON.parse(JSON.stringify(product)))
+
       this.productsService.addProductoToCart(product).subscribe(respuesta => {
         console.log("finalización")
       })
