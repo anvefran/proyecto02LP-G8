@@ -17,14 +17,20 @@ import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VendorsComponent } from './vendors/vendors.component';
 import { PrincipalComponent } from './principal/principal.component';
-
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { ProductUpdateComponent } from './product-update/product-update.component';
+import { MyProductsComponent } from './my-products/my-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     VendorsComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    LoginComponent,
+    ProductUpdateComponent,
+    MyProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,8 @@ import { PrincipalComponent } from './principal/principal.component';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    FormsModule
     
   ],
   providers: [],
