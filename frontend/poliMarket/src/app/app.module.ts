@@ -33,7 +33,7 @@ import {MatTableModule} from '@angular/material/table';
     PrincipalComponent,
     LoginComponent,
     ProductUpdateComponent,
-    MyProductsComponent
+    MyProductsComponent,
     CarritoComponent
   ],
   imports: [
@@ -51,11 +51,8 @@ import {MatTableModule} from '@angular/material/table';
     MatExpansionModule,
     MatMenuModule,
     MatBadgeModule,
-<<<<<<< HEAD
-    FormsModule
-=======
+    FormsModule,
     MatTableModule
->>>>>>> f9e7c533c36b1a55d63abbbc791968e01a80ae3c
     
   ],
   providers: [],
