@@ -21,6 +21,9 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { MyProductsComponent } from './my-products/my-products.component';
     LoginComponent,
     ProductUpdateComponent,
     MyProductsComponent
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,11 @@ import { MyProductsComponent } from './my-products/my-products.component';
     MatExpansionModule,
     MatMenuModule,
     MatBadgeModule,
+<<<<<<< HEAD
     FormsModule
+=======
+    MatTableModule
+>>>>>>> f9e7c533c36b1a55d63abbbc791968e01a80ae3c
     
   ],
   providers: [],

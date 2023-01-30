@@ -7,6 +7,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 const routes: Routes = [
   { path: "products", component: ProductsComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "product/update/:id", component: ProductUpdateComponent},
   { path: "myProducts", component: MyProductsComponent},
-  { path: "**", redirectTo: "login"}
+  { path: "**", redirectTo: "login"},
+  { path: "carrito", component: CarritoComponent}
 ];
 
 @NgModule({
