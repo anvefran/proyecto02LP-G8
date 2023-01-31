@@ -8,12 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
 
 const routes: Routes = [
   { path: "products", component: ProductsComponent },
   { path: "vendors", component: VendorsComponent},
   { path: "index", component: PrincipalComponent},
   { path: "login", component: LoginComponent},
+  { path: "register", component: RegisterComponent},
+  {path:"regvendor", component:RegisterVendorComponent},
   { path: "product/update/:id", component: ProductUpdateComponent},
   { path: "myProducts", component: MyProductsComponent},
   { path: "**", redirectTo: "login"},
