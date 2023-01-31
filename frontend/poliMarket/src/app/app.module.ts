@@ -17,13 +17,24 @@ import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VendorsComponent } from './vendors/vendors.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductUpdateComponent } from './product-update/product-update.component';
+import { MyProductsComponent } from './my-products/my-products.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import {MatTableModule} from '@angular/material/table';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogVentaComponent } from './dialog-venta/dialog-venta.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
-
+import { RegisterComponent } from './register/register.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
+import { VenderComponent } from './vender/vender.component';
+import { EditVendorComponent } from './edit-vendor/edit-vendor.component';
+import { EditarVendedorComponent } from './editar-vendedor/editar-vendedor.component';
+import { DeleteVendedorComponent } from './delete-vendedor/delete-vendedor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +42,17 @@ import {MatInputModule} from '@angular/material/input';
     VendorsComponent,
     PrincipalComponent,
     CarritoComponent,
-    DialogVentaComponent
+    DialogVentaComponent,
+    LoginComponent,
+    ProductUpdateComponent,
+    MyProductsComponent,
+    CarritoComponent,
+    RegisterComponent,
+    RegisterVendorComponent,
+    VenderComponent,
+    EditarVendedorComponent,
+    EditVendorComponent,
+    DeleteVendedorComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +72,11 @@ import {MatInputModule} from '@angular/material/input';
     MatTableModule,
     MatDialogModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

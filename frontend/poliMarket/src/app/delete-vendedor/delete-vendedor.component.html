@@ -1,0 +1,27 @@
+<div class="background-radial-gradient overflow-hidden d-flex flex-column justify-content-center" id="containerform">
+    <h1 class="my-5 display-5 fw-bold ls-tight d-flex justify-content-center" style="color: hsl(218, 81%, 95%)">
+        Por favor ingresa tu matricula:
+      </h1>
+          <div class="card bg-glass d-flex justify-self-center">
+            <div class="card-body px-4 py-5 px-md-5 ps-3 pe-5">
+                <form #userRegister = "ngForm" (ngSubmit) = "onClickSubmit(userRegister.value)">
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input ngModel type="text" name="matricula" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Matricula</label>
+                  </div>
+    
+                  <!-- Password input -->
+                  
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4" value="submit">
+                    Continuar
+                  </button>
+    
+                </form>
+              </div>
+            
+           
+          </div>
+        
+</div>

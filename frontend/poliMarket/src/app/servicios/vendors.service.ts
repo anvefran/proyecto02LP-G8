@@ -12,4 +12,30 @@ export class VendorsService {
   getAllVendors() {
     return this.http.get('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php');
   }
+
+  getVendor(matricula: string){
+    return this.http.get('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?id='+matricula);
+  }
+
+  createVendor(json: any){
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(json)
+    console.log(body)
+    return this.http.post('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php',body, {'headers': headers})
+  }
+
+  updateVendor(json:any, id:string){
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(json)
+    console.log(body)
+    return this.http.put('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?id='+id,body)
+  }
+  
+  deleteVendor(id:string){
+
+    return this.http.delete('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?id='+id)
+
+  }
+
+  
 }
