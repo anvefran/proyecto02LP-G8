@@ -1,0 +1,55 @@
+
+<div class="background-radial-gradient overflow-hidden d-flex flex-column justify-content-center" id="containerform">
+    <h1 class="my-5 display-5 fw-bold ls-tight d-flex justify-content-center" style="color: hsl(218, 81%, 95%)">
+        Edita un vendedor!
+      </h1>
+          <div class="card bg-glass d-flex justify-self-center">
+            <div class="card-body px-4 py-5 px-md-5 ps-3 pe-5">
+                <form #userRegister = "ngForm" (ngSubmit) = "onClickSubmit(userRegister.value)">
+                  <!-- Email input -->
+
+
+                  <div class="form-outline mb-4">
+                    <input ngModel type="text" name="names" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Nombre y Apellido</label>
+                  </div>
+    
+                  <div class="form-outline mb-4">
+                    <input ngModel type="email" name="email" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email</label>
+                  </div>
+
+                  
+                  <div class="form-outline mb-4">
+                    <select name="facultad" id="facultad" [(ngModel)]="selectedValue">
+                        <option value="default">Selecciona</option>
+                        <option value="FIMCP">FIMCP</option>
+                        <option value="FIEC">FIEC</option>
+                        <option value="FCSH">FCSH</option>
+                    </select>   <br>                  
+                    <label class="form-label" for="facultad">Facultad</label>
+                  </div>
+
+
+
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <input ngModel type="text"  name="startup" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Nombre de tu Startup</label>
+                  </div>
+    
+                  <div class="form-outline mb-4">
+               
+                  </div>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4" value="submit">
+                    Edit Vendor
+                  </button>
+    
+                </form>
+              </div>
+            
+           
+          </div>
+        
+</div>

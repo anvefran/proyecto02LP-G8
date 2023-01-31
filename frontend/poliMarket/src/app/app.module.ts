@@ -27,6 +27,8 @@ import { RegisterComponent } from './register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
 import { VenderComponent } from './vender/vender.component';
+import { EditVendorComponent } from './edit-vendor/edit-vendor.component';
+import { EditarVendedorComponent } from './editar-vendedor/editar-vendedor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { VenderComponent } from './vender/vender.component';
     CarritoComponent,
     RegisterComponent,
     RegisterVendorComponent,
-    VenderComponent
+    VenderComponent,
+    EditarVendedorComponent,
+    EditVendorComponent
   ],
   imports: [
     BrowserModule,
