@@ -19,4 +19,8 @@ export class PrincipalComponent  implements OnInit{
        console.log(this.products)
      })
    }
+
+   
+
+
 }

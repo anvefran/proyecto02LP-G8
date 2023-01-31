@@ -24,4 +24,29 @@ export class ProductsComponent {
         console.log("finalización")
       })
    }
+
+   searchLessThan(){
+     console.log("hellooooo")
+     let value = (<HTMLInputElement>document.getElementById('lessThanValue')!).value
+     if(value){
+       console.log(value)
+      this.productsService.getAllProductsLessThan(value).subscribe(respuesta => {
+        this.products = respuesta as Array<Producto>;
+      })
+     } else {
+      this.ngOnInit()
+     }
+
+     
+   }
+   searchGreaterThan(){
+    let value = (<HTMLInputElement>document.getElementById('greaterThanValue')!).value
+    if(value){
+     this.productsService.getAllProductsGreaterThan(value).subscribe(respuesta => {
+       this.products = respuesta as Array<Producto>;
+     })
+    } else {
+     this.ngOnInit()
+    }
+   }
 }

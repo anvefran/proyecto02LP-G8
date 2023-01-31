@@ -15,6 +15,7 @@ header('Content-Type: application/json');
 
 
 switch($_SERVER['REQUEST_METHOD']){
+    //se agrega un producto al carrito de compra
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input'),true); //obtiene en json format
         $jsonContent = file_get_contents('../data/carrito.json');
@@ -28,12 +29,17 @@ switch($_SERVER['REQUEST_METHOD']){
         "imageURL"=> $_POST ["imageURL"],
         "categoria" => $_POST ["categoria"],
         "descripcion"=>$_POST ["descripcion"]
-    );
+        );
         $archivo = fopen("../data/carrito.json", "w");
         fwrite($archivo, json_encode($productos ));
         fclose($archivo);
         $fileContent = file_get_contents("../data/carrito.json");
         echo $fileContent;
-}
 
+    //se obtiene todos los productos en formato json
+    case  'GET':
+        $fileContent = file_get_contents("../data/carrito.json");
+        echo $fileContent;
+           
+}
 ?>

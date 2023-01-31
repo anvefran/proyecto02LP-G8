@@ -21,4 +21,19 @@ export class ProductsService {
     return this.http.post('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/carrito.php', body, {'headers': headers})
   }
 
+  //obtener carrito de compras (petición a la API)
+  getAllItemsFromCart(){
+    return this.http.get('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/carrito.php');
+  }
+
+  //obtener productos que tienen un precio menor a:
+  getAllProductsLessThan(price: string){
+    return this.http.get(`http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/productosApi.php?less=${price}`)
+
+  }
+
+  getAllProductsGreaterThan(price: string){
+    return this.http.get(`http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/productosApi.php?greater=${price}`)
+  }
+
 }

@@ -19,7 +19,10 @@ import { VendorsComponent } from './vendors/vendors.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogVentaComponent } from './dialog-venta/dialog-venta.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatTableModule} from '@angular/material/table';
     ProductsComponent,
     VendorsComponent,
     PrincipalComponent,
-    CarritoComponent
+    CarritoComponent,
+    DialogVentaComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +48,10 @@ import {MatTableModule} from '@angular/material/table';
     MatExpansionModule,
     MatMenuModule,
     MatBadgeModule,
-    MatTableModule
-    
+    MatTableModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

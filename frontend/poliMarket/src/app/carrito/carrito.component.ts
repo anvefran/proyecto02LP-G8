@@ -1,17 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from '../interfaz/producto';
+import { ProductsService } from '../servicios/products.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogVentaComponent } from '../dialog-venta/dialog-venta.component';
 
-//const ELEMENT_DATA: Producto[] = [
-//  {id: "1",startUp: "Eduardo", nombre: 'Brownie de Chocolate', precio: 1.5 , stock: 2 ,imageURL: 'h/h/h', categoria: 'frutas', descripcion: "this"}
-//];
-const ELEMENT_DATA: Producto[]=[];
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
-export class CarritoComponent {
-
+export class CarritoComponent implements OnInit{
   displayedColumns: string[] = ['id','Imagen', 'Producto','Categoria', 'Precio'];
-  dataSource = ELEMENT_DATA;
+  dataSource: Producto[] = [];
+
+  constructor(private productService: ProductsService, public dialog : MatDialog){
+  }
+
+  ngOnInit(): void {
+    this.productService.getAllItemsFromCart().subscribe( respuesta => {
+
+      this.dataSource = respuesta as Array<Producto>;
+      
+    })
+  }
+
+  getTotalCost(){
+    return this.dataSource.map(p => p.precio).reduce((acc, value) => acc + value, 0)
+  }
+
+  confirmarVenta(enterAnimationDuration: string, exitAnimationDuration: string){
+    this.dataSource = [];
+    this.dialog.open(DialogVentaComponent, {
+      width: '500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+  }
+  
 }

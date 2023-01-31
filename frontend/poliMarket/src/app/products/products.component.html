@@ -1,22 +1,46 @@
-<mat-card class="example-card" >
-    <mat-card-content class="py-3">
-        <div *ngFor="let product of products" class="d-flex flex-row border align-items-center p-3 m-2">
-            <div class="text-center">
-                <img mat-card-lg-image routerLink="/producto/{{product.id}}" src="http://localhost/vscodephp/LP/proyecto02LP-G8/backend/{{product.imageURL}}" alt="{{product.nombre}}" class="img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{product.nombre}}" role="button">
-            </div> 
-            <div>
-                <ul class="list-group">
-                    <li class="list-group-item border-0"><mat-card-title>{{product.nombre}}</mat-card-title></li>
-                    <li class="list-group-item border-0" *ngIf="product.descripcion"><mat-card-subtitle>{{product.descripcion}}</mat-card-subtitle></li>
-                    <li class="list-group-item border-0 text-danger"><h4>${{product.precio}} c/u</h4></li>
-                    <li class="list-group-item border-0"><span class="text-success">In Stock:</span> {{product.stock}}</li>
-                    <li class="list-group-item border-0" *ngIf="product.stock == 0"><span class="text-danger">Out of Stock</span></li>
-                </ul>
-            </div>
-            <div>
-                <button mat-raised-button color="primary" (click)="onClick(product)" >Comprar ahora</button>
-            </div>
-        </div>
-    </mat-card-content>
-</mat-card>
+<div class="container">
+    <div class="row">
+        <div class="filtros col-md-2 d-flex flex-column justify-content-start align-items-center mt-5 position-sticky">
+            <span>Filtros: </span>
 
+                <mat-form-field class="example-full-width">
+                  <mat-label>Precios abajo de:</mat-label>
+                  <input matInput placeholder="3.50" value="" id="lessThanValue">
+                </mat-form-field>
+                <button  type="submit" mat-raised-button color="primary" (click) = "searchLessThan()">Buscar</button>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Precios arriba de:</mat-label>
+                  <input matInput placeholder="10" value="" id="greaterThanValue">
+                </mat-form-field>
+                <button  type="submit" mat-raised-button color="primary" (click) = "searchGreaterThan()">Buscar</button>
+        
+        </div>
+
+        <div class="col-md-10">
+            <mat-card class="example-card" >
+                <mat-card-content class="py-3">
+                    <div *ngFor="let product of products" class="d-flex flex-row border align-items-center p-3 m-2">
+                        <div class="text-center">
+                            <img mat-card-lg-image routerLink="/producto/{{product.id}}" src="http://localhost/vscodephp/LP/proyecto02LP-G8/backend/{{product.imageURL}}" alt="{{product.nombre}}" class="img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{product.nombre}}" role="button">
+                        </div>
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0"><mat-card-title>{{product.nombre}}</mat-card-title></li>
+                                <li class="list-group-item border-0" *ngIf="product.descripcion"><mat-card-subtitle>{{product.descripcion}}</mat-card-subtitle></li>
+                                <li class="list-group-item border-0 text-danger"><h4>${{product.precio}} c/u</h4></li>
+                                <li class="list-group-item border-0"><span class="text-success">In Stock:</span> {{product.stock}}</li>
+                                <li class="list-group-item border-0" *ngIf="product.stock == 0"><span class="text-danger">Out of Stock</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <button mat-raised-button color="primary" (click)="onClick(product)" >Comprar ahora</button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    
+    
+</div>
