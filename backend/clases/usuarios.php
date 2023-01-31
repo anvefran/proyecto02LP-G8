@@ -57,5 +57,27 @@ class Usuarios {
       
     }
 
+    public static function encontrarArrID($arreglo, $id){
+      for($indice = 0; $indice<count($arreglo);$indice++){
+        $array = $arreglo[$indice];
+        if($array["email"] == $id){
+          return $indice;
+        }
+      }
+
+    }
+
+    public static function deleteUsuario($id){
+      $fileContent = file_get_contents("../data/usuarios.json");
+      $vendedores = json_decode($fileContent,true);
+      $indice =  Usuarios::encontrarArrID($vendedores,$id);
+      array_splice($vendedores,$indice,1);
+      $file = fopen("../data/usuarios.json", 'w');
+      fwrite($file,json_encode($vendedores));
+      fclose($file);
+      $fileContent = file_get_contents("../data/usuarios.json");
+      echo $fileContent;
+    }
+
   }
 ?>

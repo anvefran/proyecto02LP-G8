@@ -29,6 +29,7 @@ import { RegisterVendorComponent } from './register-vendor/register-vendor.compo
 import { VenderComponent } from './vender/vender.component';
 import { EditVendorComponent } from './edit-vendor/edit-vendor.component';
 import { EditarVendedorComponent } from './editar-vendedor/editar-vendedor.component';
+import { DeleteVendedorComponent } from './delete-vendedor/delete-vendedor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { EditarVendedorComponent } from './editar-vendedor/editar-vendedor.compo
     RegisterVendorComponent,
     VenderComponent,
     EditarVendedorComponent,
-    EditVendorComponent
+    EditVendorComponent,
+    DeleteVendedorComponent
   ],
   imports: [
     BrowserModule,

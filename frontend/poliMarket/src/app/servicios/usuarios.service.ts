@@ -28,4 +28,8 @@ export class UsuariosService {
     console.log(body)
     return this.http.post('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/usuariosApi.php',body, {'headers': headers})
   }
+
+  deleteUser(email:string){
+    return this.http.delete(`http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/usuariosApi.php?email=${email}`)
+  }
 }

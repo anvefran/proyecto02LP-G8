@@ -30,6 +30,12 @@ export class VendorsService {
     console.log(body)
     return this.http.put('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?id='+id,body)
   }
+  
+  deleteVendor(id:string){
+
+    return this.http.delete('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?id='+id)
+
+  }
 
   
 }

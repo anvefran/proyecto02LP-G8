@@ -12,12 +12,14 @@ import { RegisterVendorComponent } from './register-vendor/register-vendor.compo
 import { VenderComponent } from './vender/vender.component';
 import { EditVendorComponent } from './edit-vendor/edit-vendor.component';
 import { EditarVendedorComponent } from './editar-vendedor/editar-vendedor.component';
+import { DeleteVendedorComponent } from './delete-vendedor/delete-vendedor.component';
 const routes: Routes = [
   { path: "products", component: ProductsComponent },
   { path: "vendors", component: VendorsComponent},
   { path: "index", component: PrincipalComponent},
   { path: "login", component: LoginComponent},
   { path: "register", component: RegisterComponent},
+  {path: "deleteAcc", component: DeleteVendedorComponent},
   {path:"regvendor", component:RegisterVendorComponent},
   {path: "updateVendor", component:EditVendorComponent},
   {path: "editarVendedor/:id", component:EditarVendedorComponent},

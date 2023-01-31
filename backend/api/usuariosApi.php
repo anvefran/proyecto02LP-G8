@@ -43,6 +43,12 @@ switch($_SERVER['REQUEST_METHOD']){
 
         break;
     
+    case 'DELETE':
+        if(isset($_GET['email'])){
+            Usuarios::deleteUsuario($_GET['email']);
+        }
+        break;
+    
 
 }
 ?>
