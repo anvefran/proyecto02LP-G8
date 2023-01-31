@@ -18,5 +18,20 @@ export class VendorsComponent {
      })
    }
 
+  searchByFacultad(){
+    let value = (<HTMLInputElement>document.getElementById('facultad')!).value
+    if(value){
+      this.vendorsService.getVendorFacultad(value).subscribe(respuesta =>{
+        this.vendors = respuesta as Array<Vendedor>;
+      }, (error) => {                   
+        alert("No hay vendedores de esa facultad.")
+      })
+    }
+    else{
+      this.ngOnInit();
+    }
+
+  }
+
 }
 

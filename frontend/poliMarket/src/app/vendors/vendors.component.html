@@ -1,17 +1,32 @@
-<mat-card class="example-card" >
-    <mat-card-content class="py-3">
-        <div *ngFor="let vendor of vendors" class="d-flex flex-row border align-items-center p-3">
-            <div class="text-center">
-                <img mat-card-lg-image routerLink="/vendors/{{vendor.id}}" src="http://localhost/vscodephp/LP/proyecto02LP-G8/backend/{{vendor.image}}" alt="{{vendor.startup}}" class="img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{vendor.startup}}" role="button">
-            </div> 
-            <div>
-                <ul class="list-group">
-                    <li class="list-group-item border-0"><mat-card-title>{{vendor.startup}}</mat-card-title></li>
-                    <li class="list-group-item border-0"><mat-card-title>{{vendor.nombre}}</mat-card-title></li>
-                    <li class="list-group-item border-0"><h5>{{vendor.facultad}}</h5></li>
-                </ul>
+<div class="container">
+    <div class="row">
+            <div class="filtros col-md-2 d-flex flex-column justify-content-start align-items-center mt-5 position-sticky">
+                <span>Filtros: </span>
+
+                    <mat-form-field class="example-full-width">
+                    <mat-label>Facultad:</mat-label>
+                    <input matInput placeholder="FIEC" value="" id="facultad">
+                    </mat-form-field>
+                    <button  type="submit" mat-raised-button color="primary" (click)="searchByFacultad()">Buscar</button>
             </div>
-        </div>
-    </mat-card-content>
-</mat-card>
+    <div class="col-md-10">
+        <mat-card class="example-card" >
+            <mat-card-content class="py-3">
+            <div *ngFor="let vendor of vendors" class="d-flex flex-row border align-items-center p-3">
+                <div class="text-center">
+                    <img mat-card-lg-image routerLink="/vendors/{{vendor.id}}" src="http://localhost/vscodephp/LP/proyecto02LP-G8/backend/{{vendor.image}}" alt="{{vendor.startup}}" class="img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{vendor.startup}}" role="button">
+                </div> 
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0"><mat-card-title>{{vendor.startup}}</mat-card-title></li>
+                        <li class="list-group-item border-0"><mat-card-title>{{vendor.nombre}}</mat-card-title></li>
+                        <li class="list-group-item border-0"><h5>{{vendor.facultad}}</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</div>
+</div>
 

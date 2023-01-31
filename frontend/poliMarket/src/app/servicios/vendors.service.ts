@@ -37,5 +37,9 @@ export class VendorsService {
 
   }
 
+  getVendorFacultad(facu:string){
+    return this.http.get('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php?facultad='+facu)
+  }
+
   
 }
