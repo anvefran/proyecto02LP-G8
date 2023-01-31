@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from 'src/app/interfaz/producto';
 import { ProductsService } from  'src/app/servicios/products.service';
 import { ActivatedRoute } from '@angular/router';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-product-update',
@@ -14,11 +15,12 @@ export class ProductUpdateComponent {
   nombre: string = "";
   imagenUrl: any = "";
   description: string = "";
+  categoria: string = "";
   id: string = "";
   startUp:string="";
   previousImg:string="";
 
-  constructor(private route: ActivatedRoute, private productsService: ProductsService){
+  constructor(private router: Router,private route: ActivatedRoute, private productsService: ProductsService){
     this.route.params.subscribe(params => {
       this.id = params['id']; 
     });
@@ -35,13 +37,14 @@ export class ProductUpdateComponent {
     this.stock = data.stock;
     this.nombre = data.nombre;
     this.description = data.descripcion;
-    console.log(data.imagen)
-    if (this.imagenUrl == ""){
-      this.imagenUrl = this.previousImg;
-    }
-    let json = {"id":this.id, "startUp": this.startUp, "precio": this.precio, "nombre": this.nombre, "stock": this.stock,"descripcion": this.description, "imageUrl": this.imagenUrl}
+    this.categoria = data.categoria;
+    let json = {"id":this.id, "startUp": this.startUp,"categoria":this.categoria, "precio": this.precio, "nombre": this.nombre, "stock": this.stock,"descripcion": this.description, "imageURL": this.previousImg}
     console.log(json)
-    this.productsService.updateProduct(this.id, json);
+    this.productsService.updateProduct(this.id, json).subscribe(respuesta=>{
+      console.log(respuesta);
+    });
+    alert("Su producto ha sido actualizado");
+    this.router.navigate(['/myProducts']);
   }
   readUrl(event: any) {
     const file = event.target.files[0];

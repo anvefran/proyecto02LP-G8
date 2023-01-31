@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "product/update/:id", component: ProductUpdateComponent},
   { path: "myProducts", component: MyProductsComponent},
-  { path: "**", redirectTo: "login"},
-  { path: "carrito", component: CarritoComponent}
+  { path: "carrito", component: CarritoComponent},
+  { path: "**", redirectTo: "login"}
 ];
 
 @NgModule({

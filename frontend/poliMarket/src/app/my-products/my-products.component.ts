@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Output, SimpleChanges } from '@angular/core';
 import { Producto } from 'src/app/interfaz/producto';
 import { Vendedor } from 'src/app/interfaz/vendedor';
 import { ProductsService } from  'src/app/servicios/products.service';
 import { UsuariosService } from  'src/app/servicios/usuarios.service';
 import { Usuario } from 'src/app/interfaz/usuario';
 import { VendorsService } from 'src/app/servicios/vendors.service';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-my-products',
@@ -16,7 +17,7 @@ export class MyProductsComponent {
   startUp!: string;
   products: Producto[]=[];
   //vendors: Vendedor[]=[];
-  constructor(private productsService: ProductsService,private vendorsService: VendorsService) {}
+  constructor(private router: Router,private productsService: ProductsService,private vendorsService: VendorsService) {}
   ngOnInit(){
     this.email = localStorage.getItem('email')
     console.log("email "+this.email);
@@ -43,8 +44,15 @@ export class MyProductsComponent {
    handle(id:string){
     let text = "Esta seguro de eliminar producto con id: "+ id+"?";
     if (confirm(text) == true) {
-      this.productsService.deleteProduct(id);
+      this.productsService.deleteProduct(id).subscribe(respuesta=>{
+        console.log(respuesta);
+        this.router.navigate(['/myProducts']);
+      });
     } 
 
+   }
+   
+   ngOnDestroy(){
+    console.log("destroying component")
    }
 }

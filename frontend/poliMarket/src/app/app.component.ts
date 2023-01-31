@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'poliMarket';
-
+  
   menu(enlaces: any) {
     enlaces.toggle()
   }
   hidden = false;
-
+  
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
   }
