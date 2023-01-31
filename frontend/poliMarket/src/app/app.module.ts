@@ -18,13 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { VendorsComponent } from './vendors/vendors.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import {MatTableModule} from '@angular/material/table';
-
-
+import { RegisterComponent } from './register/register.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,9 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     ProductUpdateComponent,
     MyProductsComponent,
-    CarritoComponent
+    CarritoComponent,
+    RegisterComponent,
+    RegisterVendorComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,9 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatBadgeModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
     
   ],
   providers: [],

@@ -12,4 +12,13 @@ export class VendorsService {
   getAllVendors() {
     return this.http.get('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php');
   }
+
+  createVendor(json: any){
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(json)
+    console.log(body)
+    return this.http.post('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/vendedoresApi.php',body, {'headers': headers})
+  }
+
+  
 }

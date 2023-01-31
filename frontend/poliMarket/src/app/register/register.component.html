@@ -1,0 +1,35 @@
+
+<div class="background-radial-gradient overflow-hidden d-flex flex-column justify-content-center" id="containerform">
+    <h1 class="my-5 display-5 fw-bold ls-tight d-flex justify-content-center" style="color: hsl(218, 81%, 95%)">
+        Registra un nuevo usuario!
+      </h1>
+          <div class="card bg-glass d-flex justify-self-center">
+            <div class="card-body px-4 py-5 px-md-5 ps-3 pe-5">
+                <form #userRegister = "ngForm" (ngSubmit) = "onClickSubmit(userRegister.value)">
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input ngModel type="email" name="email" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                  </div>
+    
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <input ngModel type="password"  name="password" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                  </div>
+    
+                  <div class="form-outline mb-4">
+                <mat-checkbox (change)="checkCheckBoxvalue($event)" #ch>Quiero ser vendedor</mat-checkbox>
+                  </div>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4" value="submit">
+                    Register
+                  </button>
+    
+                </form>
+              </div>
+            
+           
+          </div>
+        
+</div>
