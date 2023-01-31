@@ -10,6 +10,7 @@ import { MyProductsComponent } from './my-products/my-products.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
+import { VenderComponent } from './vender/vender.component';
 
 const routes: Routes = [
   { path: "products", component: ProductsComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"regvendor", component:RegisterVendorComponent},
   { path: "product/update/:id", component: ProductUpdateComponent},
   { path: "myProducts", component: MyProductsComponent},
+  {path: "vender", component: VenderComponent},
   { path: "carrito", component: CarritoComponent},
   { path: "**", redirectTo: "login"}
 ];

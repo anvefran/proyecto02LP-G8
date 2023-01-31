@@ -26,6 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import { RegisterComponent } from './register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RegisterVendorComponent } from './register-vendor/register-vendor.component';
+import { VenderComponent } from './vender/vender.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { RegisterVendorComponent } from './register-vendor/register-vendor.compo
     MyProductsComponent,
     CarritoComponent,
     RegisterComponent,
-    RegisterVendorComponent
+    RegisterVendorComponent,
+    VenderComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,9 @@ export class ProductsService {
   updateProduct(id:string,body:any) {
     return this.http.put('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/productosApi.php?id='+id,body);
   }
+  postProduct(body:any) {
+    return this.http.post('http://localhost/vscodephp/LP/proyecto02LP-G8/backend/api/productosApi.php',body);
+  }
 
   addProductoToCart(product: Producto){
     const headers = { 'content-type': 'application/json'}  

@@ -1,0 +1,56 @@
+<div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="card bg-glass">
+      <div class="card-body px-5 py-5 px-md-5">
+    <form #productUpdate = "ngForm" (ngSubmit) = "onClickSubmit(productUpdate.value)">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                  <input ngModel name="id" type="text" id="form6Example0" class="form-control" />
+                  <label class="form-label" for="form6Example0">Id</label>
+                </div>
+              </div>
+          <div class="col">
+            <div class="form-outline">
+              <input ngModel name="precio" type="number" id="form6Example1" class="form-control" />
+              <label class="form-label" for="form6Example1">Precio</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input ngModel name="stock" type="number" id="form6Example2" class="form-control" />
+              <label class="form-label" for="form6Example2">Stock</label>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input ngModel name="nombre" type="text" id="form6Example3" class="form-control" />
+          <label class="form-label" for="form6Example3">Nombre</label>
+        </div>
+      
+        <!-- File input -->
+        <div class="form-outline mb-4">
+          <input ngModel name="imagen" (change)="readUrl($event)" type="file" id="form6Example4" class="form-control" />
+          <label class="form-label" for="form6Example4">Image</label>
+        </div>
+    
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <input ngModel type="text" name="categoria" id="form6Example7" class="form-control" />
+            <label class="form-label" for="form6Example7">Categoria</label>
+          </div>
+      
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea ngModel name="descripcion" class="form-control" id="form6Example8" rows="4"></textarea>
+          <label class="form-label" for="form6Example8">Descripcion</label>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" valu="submit">Create Product</button>
+      </form>
+      </div>
+    </div>
+    </div>
