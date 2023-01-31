@@ -56,7 +56,7 @@ export class VenderComponent {
       }
       if (this.valid==false){
         alert("Id ya esta siendo utilizado, no puede crear este producto");
-        this.router.navigate(['/principal']);
+        this.router.navigate(['/index']);
       }else{
         let json = {"id":this.id, "startUp": this.startUp,"categoria":this.categoria, "precio": this.precio, "nombre": this.nombre, "stock": this.stock,"descripcion": this.description, "imageURL": this.imagenUrl}
         console.log(json)

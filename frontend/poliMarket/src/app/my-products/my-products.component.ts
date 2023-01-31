@@ -28,17 +28,16 @@ export class MyProductsComponent {
           this.startUp = vendor.startup;
         }
       }
-    })
-
-    this.productsService.getAllProducts().subscribe(respuesta => {
-       let productos = respuesta as Array<Producto>;
-       for (let producto of productos){
-        if (producto.startUp == this.startUp){
-          this.products.push(producto);
+      this.productsService.getAllProducts().subscribe(respuesta => {
+        let productos = respuesta as Array<Producto>;
+        for (let producto of productos){
+         if (producto.startUp == this.startUp){
+           this.products.push(producto);
+         }
         }
-       }
-       console.log(this.products)
-     })
+        console.log(this.products)
+      })
+    })
     
    }
    handle(id:string){

@@ -42,9 +42,10 @@ export class ProductUpdateComponent {
     console.log(json)
     this.productsService.updateProduct(this.id, json).subscribe(respuesta=>{
       console.log(respuesta);
+      alert("Su producto ha sido actualizado");
+      this.router.navigate(['/myProducts']);
     });
-    alert("Su producto ha sido actualizado");
-    this.router.navigate(['/myProducts']);
+    
   }
   readUrl(event: any) {
     const file = event.target.files[0];
