@@ -26,7 +26,6 @@ export class ProductsComponent {
    }
 
    searchLessThan(){
-     console.log("hellooooo")
      let value = (<HTMLInputElement>document.getElementById('lessThanValue')!).value
      if(value){
        console.log(value)
